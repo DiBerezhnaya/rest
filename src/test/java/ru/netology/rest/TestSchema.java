@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 import static io.restassured.RestAssured.given;
 import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchemaInClasspath;
 import static org.hamcrest.Matchers.equalTo;
-import static org.hamcrest.Matchers.hasSize;
+
 
 public class TestSchema {
 
@@ -14,13 +14,13 @@ public class TestSchema {
         given()
                 .baseUri("http://localhost:9999/api/v1")
                 .when()
-                .get( "/demo/accounts")
+                .get("/demo/accounts")
                 .then()
                 .statusCode(200)
                 .body(matchesJsonSchemaInClasspath("accounts.schema.json"))
-                .body("[0].currency",equalTo("RUB"))
-                .body("[1].currency",equalTo("USD"))
-                .body("[2].currency",equalTo("RUB"))
+                .body("[0].currency", equalTo("RUB"))
+                .body("[1].currency", equalTo("USD"))
+                .body("[2].currency", equalTo("RUB"))
         ;
     }
 }
