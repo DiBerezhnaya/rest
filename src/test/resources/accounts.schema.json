@@ -28,6 +28,15 @@
       },
       "currency": {
         "type": "string"
+      },
+
+      "if": {
+        "type": "array",
+        "properties": {
+          "type": { "enum": ["RUB", "USD"] }
+        },
+        "required": ["type"]
+
       }
     }
   }
